@@ -3,13 +3,14 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Multishop.Catalog.Entities
 {
-    public class ProductDetail
+    public class ProductImage
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ProductDetailID { get; set; }
-        public string ProductDescription { get; set; }
-        public string ProductInfo { get; set; }
+        public string ProductImageID { get; set; }
+        public string Image1 { get; set; }
+        public string Image2 { get; set; }
+        public string Image3 { get; set; }
         public string ProductId { get; set; }
         [BsonIgnore]
         public Product Product { get; set; }
