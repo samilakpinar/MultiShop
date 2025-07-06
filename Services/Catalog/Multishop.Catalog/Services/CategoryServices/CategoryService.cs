@@ -42,9 +42,10 @@ namespace Multishop.Catalog.Services.CategoryServices
             return _mapper.Map<GetByIdCategoryDto>(value);
         }
 
-        public Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
+        public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
         {
-            throw new NotImplementedException();
+            var values = _mapper.Map<Category>(updateCategoryDto); //UpdateCategoryDto'dan Category'e dönüştürme
+            await _categoryCollection.FindOneAndReplaceAsync(x => x.CategoryID == updateCategoryDto.CategoryID, values); //CategoryID'ye göre güncelleme işlemi
         }
     }
 }
