@@ -11,11 +11,11 @@ namespace Multishop.Catalog.Services.CategoryServices
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
 
-        public CategoryService(IMapper mapper, IDatabaseSettings _databaseSettings)
+        public CategoryService(IMapper mapper, IDatabaseSettings databaseSettings)
         {
-            var client = new MongoClient(_databaseSettings.ConnectionString); //Bağlantı
-            var database = client.GetDatabase(_databaseSettings.DatabaseName); //Database
-            _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);//tablo
+            var client = new MongoClient(databaseSettings.ConnectionString); //Bağlantı
+            var database = client.GetDatabase(databaseSettings.DatabaseName); //Database
+            _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
             _mapper = mapper;
         }
 
@@ -27,7 +27,7 @@ namespace Multishop.Catalog.Services.CategoryServices
 
         public async Task DeleteCategoryAsync(string id)
         {
-            await _categoryCollection.DeleteOneAsync(x => x.CategoryID == id); 
+            await _categoryCollection.DeleteOneAsync(x => x.CategoryId == id); 
         }
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
@@ -38,14 +38,14 @@ namespace Multishop.Catalog.Services.CategoryServices
 
         public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
         {
-            var value = await _categoryCollection.Find<Category>(x => x.CategoryID == id).FirstOrDefaultAsync();            
+            var value = await _categoryCollection.Find<Category>(x => x.CategoryId == id).FirstOrDefaultAsync();            
             return _mapper.Map<GetByIdCategoryDto>(value);
         }
 
         public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
         {
             var values = _mapper.Map<Category>(updateCategoryDto); //UpdateCategoryDto'dan Category'e dönüştürme
-            await _categoryCollection.FindOneAndReplaceAsync(x => x.CategoryID == updateCategoryDto.CategoryID, values); //CategoryID'ye göre güncelleme işlemi
+            await _categoryCollection.FindOneAndReplaceAsync(x => x.CategoryId == updateCategoryDto.CategoryId, values); //CategoryID'ye göre güncelleme işlemi
         }
     }
 }
