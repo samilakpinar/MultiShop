@@ -1,6 +1,32 @@
+using Microsoft.Extensions.Options;
+using Multishop.Catalog.Services.CategoryServices;
+using Multishop.Catalog.Services.ProductDetailServices;
+using Multishop.Catalog.Services.ProductImageServices;
+using Multishop.Catalog.Services.ProductServices;
+using Multishop.Catalog.Settings;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//scope uygulama çaðrýldýðýnda bize bir nesne örneði oluþturacaktýr.
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
+builder.Services.AddScoped<IProductImageService, ProductImageService>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+//automapper configrasyon
+//Transient
+//Singleton
+//Scoped
+
+//appsettings conf
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+builder.Services.AddScoped<IDatabaseSettings>(sp =>
+{
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

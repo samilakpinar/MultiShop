@@ -7,7 +7,7 @@ namespace Multishop.Catalog.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)] //bir id olduğu uygulamaya bildirilmiş oldu.
-        public string CategoryID { get; set; }
+        public string CategoryId { get; set; }
         public string CategoryName { get; set; }
     }
 }
