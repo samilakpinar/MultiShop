@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CQRS\Commands\AddressCommands\" />
+    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
+  </ItemGroup>
+
 </Project>
