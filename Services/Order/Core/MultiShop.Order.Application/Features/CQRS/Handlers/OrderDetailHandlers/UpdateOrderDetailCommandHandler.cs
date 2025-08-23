@@ -25,16 +25,15 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers
                 throw new ArgumentNullException(nameof(command), "Command cannot be null");
             }
 
-            var orderDetail = new OrderDetail
-            {
-                ProductId = command.ProductId,
-                ProductName = command.ProductName,
-                ProductPrice = command.ProductPrice,
-                ProductAmount = command.ProductAmount,
-                ProductTotalPrice = command.ProductTotalPrice,
-                OrderingId = command.OrderingId,                
+            var orderDetail = await _repository.GetByIdAsync(command.OrderDetailId);
 
-            };
+            orderDetail.ProductId = command.ProductId;
+            orderDetail.ProductName = command.ProductName;
+            orderDetail.ProductPrice = command.ProductPrice;
+            orderDetail.ProductAmount = command.ProductAmount;
+            orderDetail.ProductTotalPrice = command.ProductTotalPrice;
+            orderDetail.OrderingId = command.OrderingId;
+                        
             await _repository.UpdateAsync(orderDetail);
         }
     }
