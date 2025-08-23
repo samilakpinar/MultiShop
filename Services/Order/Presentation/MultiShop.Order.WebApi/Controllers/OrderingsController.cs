@@ -50,4 +50,5 @@ namespace MultiShop.Order.WebApi.Controllers
             await _mediator.Send(command);
             return Ok("Updated Successfully");
         }
+    }
 }
