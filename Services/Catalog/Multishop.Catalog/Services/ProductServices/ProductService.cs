@@ -33,7 +33,10 @@ namespace Multishop.Catalog.Services.ProductServices
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()
         {
-            var values = await _productCollection.Find(x => true).ToListAsync();
+            //var values = await _productCollection.Find(x => true).ToListAsync();
+            //mongoDb hata verdiğinden dolayı elle yazılmıştır.
+            var values = new List<Product>();
+            values.Add(new Product { ProductName = "Fotoğraf Makinesi", ProductPrice = 2500 ,CategoryId = "1"});
             return _mapper.Map<List<ResultProductDto>>(values);
         }
 
