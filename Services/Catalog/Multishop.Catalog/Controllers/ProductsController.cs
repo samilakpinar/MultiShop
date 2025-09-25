@@ -13,7 +13,7 @@ namespace Multishop.Catalog.Controllers
 
         public ProductsController(IProductService productService)
         {
-            productService = _productService;
+            _productService = productService;
         }
 
         [HttpGet]

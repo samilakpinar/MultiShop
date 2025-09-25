@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-//using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
-//using MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices;
-//using Newtonsoft.Json;
+using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices;
+using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 {
@@ -12,15 +12,11 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
         //{
         //    _specialOfferService = specialOfferService;
         //}
-        //public async Task<IViewComponentResult> InvokeAsync()
-        //{
-        //    var values = await _specialOfferService.GetAllSpecialOfferAsync();
-        //    return View(values);
-        //}
-
-        public async Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
+            //var values = await _specialOfferService.GetAllSpecialOfferAsync();
             return View();
         }
+
     }
 }

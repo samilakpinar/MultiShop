@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Multishop.Catalog.Dtos.ProductDetailDtos;
+using Multishop.Catalog.Dtos.ProductDtos;
 using Multishop.Catalog.Services.ProductDetailServices;
 
 namespace Multishop.Catalog.Controllers
@@ -20,6 +21,7 @@ namespace Multishop.Catalog.Controllers
         public async Task<IActionResult> ProductDetailList()
         {
             var values = await _productDetailService.GetAllProductDetailAsync();
+            
             return Ok(values);
         }
 
