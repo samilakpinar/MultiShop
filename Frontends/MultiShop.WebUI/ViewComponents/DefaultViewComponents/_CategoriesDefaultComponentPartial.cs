@@ -34,13 +34,13 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 
                 var list = new List<ResultCategoryDto>();
             list.Add(new ResultCategoryDto { CategoryID = "1", CategoryName = "Elektronik", ImageUrl = "" });
-            list.Add(new ResultCategoryDto { CategoryID = "1", CategoryName = "Telefon", ImageUrl = "" });
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Bilgisayar", ImageUrl = ""});
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Oyuncak", ImageUrl = ""});
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Kıyafet", ImageUrl = ""});
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Mobilya", ImageUrl = ""});
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Temizlik", ImageUrl = ""});
-            list.Add(new ResultCategoryDto { CategoryID = "1",CategoryName = "Küçük Ev Aletleri", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "2", CategoryName = "Telefon", ImageUrl = "" });
+            list.Add(new ResultCategoryDto { CategoryID = "3",CategoryName = "Bilgisayar", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "4",CategoryName = "Oyuncak", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "5",CategoryName = "Kıyafet", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "6",CategoryName = "Mobilya", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "7",CategoryName = "Temizlik", ImageUrl = ""});
+            list.Add(new ResultCategoryDto { CategoryID = "8",CategoryName = "Küçük Ev Aletleri", ImageUrl = ""});
 
             return View(list);
         }
